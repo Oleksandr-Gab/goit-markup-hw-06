@@ -50,6 +50,19 @@ body {
   margin-right: auto;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 .list {
   list-style: none;
 }
@@ -480,6 +493,83 @@ body {
   background-color: var(--success-color);
 }
 
+.footer-form-wraper {
+  margin-left: 80px;
+}
+
+.form-name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+.footer-form {
+  display: flex;
+}
+
+.footer-fiel {
+  width: 264px;
+  padding: 8px 16px;
+  margin-right: 24px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  outline: none;
+}
+
+.footer-fiel::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-fiel:hover,
+.footer-fiel:not(:placeholder-shown) {
+  border: 1px solid var(--pressed-state-color);
+}
+
+.form-btn {
+  position: relative;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  padding: 8px 64px 8px 24px;
+  background: var(--primary-brand-color);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+
+  transform: scale(1);
+  transition: transform var(--tcb), background--color var(--tcb);
+}
+
+.btn-icon {
+  position: absolute;
+  right: 24px;
+  fill: #ffffff;
+  opacity: 1;
+
+  transform: translate(0);
+  transition: transform var(--tcb), opacity var(--tcb);
+}
+
+.form-btn:is(:hover, :focus) {
+  background-color: var(--pressed-state-color);
+  transform: scale(0.9);
+}
+
+.form-btn:hover .btn-icon {
+  transform: translate(35px, -35px);
+  opacity: 0;
+}
+
 .filter {
 }
 .filter-heading {
@@ -625,8 +715,9 @@ body {
 }
 
 .modal {
-  min-width: 408px;
-  height: 576px;
+  width: 408px;
+  height: 600px;
+  padding: 72px 24px 24px 24px;
   background-color: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -653,7 +744,10 @@ body {
   justify-content: center;
   align-items: center;
   color: #000;
-  transition: color var(--tcb), background-color var(--tcb);
+
+  transform: scale(1);
+  transition: transform var(--tcb), color var(--tcb),
+    background-color var(--tcb);
 }
 
 .close-svg {
@@ -663,4 +757,151 @@ body {
 .modal-close-btn:is(:hover, :focus) {
   background-color: var(--pressed-state-color);
   color: #ffffff;
+  transform: scale(0.9);
+}
+
+.modal-heading {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--dark-color);
+  margin-bottom: 14px;
+}
+
+.modal-form {
+}
+.form-field {
+  margin-bottom: 8px;
+}
+.form-text {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--subtle-text-color);
+}
+.form-wraper {
+  width: 100%;
+  position: relative;
+}
+.modal-inp {
+  width: 100%;
+  color: #000;
+  padding: 10px 38px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+  margin-top: 4px;
+}
+.modal-icon {
+  position: absolute;
+  pointer-events: none;
+  fill: var(--dark-color);
+  left: 25px;
+  top: 5px;
+  transform: translate(-50%, 50%);
+}
+
+.modal-inp:is(:hover, :focus),
+.modal-inp:not(:placeholder-shown) {
+  border: 1px solid var(--primary-brand-color);
+}
+.modal-inp:not(:placeholder-shown) + .modal-icon {
+  fill: var(--primary-brand-color);
+}
+.modal-inp:is(:hover, :focus) + .modal-icon {
+  fill: var(--primary-brand-color);
+}
+
+.form-coment {
+  margin-bottom: 16px;
+}
+
+.modal-textarea {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  padding: 8px 16px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  color: #000;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: none;
+  margin-top: 4px;
+}
+
+.modal-textarea:not(:placeholder-shown),
+.modal-textarea:is(:hover, :focus),
+.modal-inp:is(:hover, :focus),
+.modal-inp:not(:placeholder-shown) {
+  border: 1px solid var(--primary-brand-color);
+}
+
+.modal-checbox {
+  margin-bottom: 24px;
+}
+.checbox {
+}
+
+.checbox-text {
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: 0.04em;
+  color: #757575;
+  display: flex;
+}
+
+.checbox-text::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 1.25px solid var(--dark-color);
+  border-radius: 2px;
+  margin-right: 8px;
+  cursor: pointer;
+
+  transition: background-color var(--tcb);
+}
+
+.checbox:checked + .checbox-text::before {
+  background-color: var(--pressed-state-color);
+  border: none;
+  background-image: url(../images/chec.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.checbox-link {
+}
+
+.modal-btn {
+  padding: 16px 32px;
+  width: 169px;
+  background-color: var(--primary-brand-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  border: none;
+  text-align: center;
+
+  cursor: pointer;
+  position: absolute;
+  bottom: 24px;
+  transform: translateX(50%) scale(1);
+  transition: transform var(--tcb), background--color var(--tcb);
+}
+
+.modal-btn:is(:hover, :focus) {
+  background-color: var(--pressed-state-color);
+  transform: translateX(50%) scale(0.9);
 }
