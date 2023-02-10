@@ -794,6 +794,8 @@ body {
   border-radius: 4px;
   outline: none;
   margin-top: 4px;
+
+  transition: border var(--tcb);
 }
 .modal-icon {
   position: absolute;
@@ -802,6 +804,8 @@ body {
   left: 25px;
   top: 5px;
   transform: translate(-50%, 50%);
+
+  transition: fill var(--tcb);
 }
 
 .modal-inp:is(:hover, :focus),
@@ -833,6 +837,8 @@ body {
   border-radius: 4px;
   outline: none;
   margin-top: 4px;
+
+  transition: border var(--tcb);
 }
 
 .modal-textarea:not(:placeholder-shown),
@@ -877,6 +883,7 @@ body {
 }
 
 .checbox-link {
+  padding-left: 3px;
 }
 
 .modal-btn {
